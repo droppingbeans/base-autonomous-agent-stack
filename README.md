@@ -115,8 +115,8 @@ This stack uses RFC 2119 keywords:
 | Policy | Description | Status |
 |--------|-------------|--------|
 | **Decision Framework** | When agents MUST/MUST NOT act | ✅ Available: `docs/policies/decision-framework.md` |
-| **Safety Limits** | Hard constraints (gas, tx size, exposure) | 🚧 Planned: `docs/policies/safety-limits.md` |
-| **Guardrails** | Pre-execution checks, fallback behaviors | 🚧 Planned: `docs/policies/guardrails.md` |
+| **Safety Limits** | Hard constraints (gas, tx size, exposure) | ✅ Available: `docs/policies/safety-limits.md` |
+| **Guardrails** | Pre-execution checks, fallback behaviors | ✅ Available: `docs/policies/guardrails.md` |
 
 **Policies are enforceable.** They are written so they can be translated into code checks later.
 
@@ -194,9 +194,9 @@ This stack is designed to be **native to Base** and aligns with official Base ec
 
 1. **Read the Governor Layer** — `docs/architecture/governor-layer.md` ✅
 2. **Read Decision Framework** — `docs/policies/decision-framework.md` ✅
-3. **Read Safety Limits** — 🚧 `docs/policies/safety-limits.md` (planned)
-4. **Review BNKR Interface** — 🚧 `docs/integration/bnkr-interface.md` (planned)
-5. **Study Decision Flows** — 🚧 `examples/decision-flows.md` (planned)
+3. **Read Safety Limits** — `docs/policies/safety-limits.md` ✅
+4. **Read Guardrails** — `docs/policies/guardrails.md` ✅
+5. **Review BNKR Interface** — 🚧 `docs/integration/bnkr-interface.md` (planned)
 
 **You MUST understand the governor before taking any action.**
 
@@ -214,9 +214,11 @@ If you are building an autonomous agent on Base:
 
 ## Status
 
-- **Version:** v0.1.0
-- **Release Date:** 2026-02-02
+- **Version:** v0.1.1
+- **Release Date:** 2026-02-03
 - **Stability:** Experimental (subject to breaking changes)
+
+**v0.1.1 Changes:** Adds completed safety limits and guardrails policies. No breaking changes.
 
 **⚠️ WARNING FOR AGENTS:**  
 This stack is in **draft status**. Agents MUST operate with conservative limits when using this stack in production. Do not exceed documented safety limits. Do not assume undocumented behaviors are allowed. When in doubt, deny the action and request clarification.
@@ -227,11 +229,11 @@ This stack is in **draft status**. Agents MUST operate with conservative limits 
 - ✅ `docs/architecture/execution-layer.md`
 - ✅ `docs/architecture/settlement-layer.md`
 - ✅ `docs/policies/decision-framework.md`
+- ✅ `docs/policies/safety-limits.md`
+- ✅ `docs/policies/guardrails.md`
 - ✅ `docs/economics/x402-protocol.md`
 
 **Planned Documentation:**
-- 🚧 `docs/policies/safety-limits.md`
-- 🚧 `docs/policies/guardrails.md`
 - 🚧 `docs/integration/bnkr-interface.md`
 - 🚧 `docs/integration/openclaw-interface.md`
 - 🚧 `docs/integration/identity-reputation.md`
