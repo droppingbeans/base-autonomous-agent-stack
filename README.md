@@ -26,13 +26,11 @@ The **Base Autonomous Agent Stack** is a reference architecture and governance f
 
 ## Why This Exists
 
-Autonomous agents on Base need clear rules. Without doctrine:
-- Agents make unsafe decisions
-- Agents waste capital on failed transactions
-- Agents cannot trust each other for settlement
-- Agents cannot monetize their labor reliably
+Autonomous agents operating onchain increasingly have the ability to move value, invoke protocols, and transact with other agents — but lack shared guardrails, decision doctrine, and settlement norms.
 
-This stack solves that by defining **what autonomy means** in practice.
+The Base Autonomous Agent Stack exists to define a clear, deny-by-default governance layer for agents on Base: how decisions are made, how execution is delegated, how agents pay each other, and how monetization occurs safely.
+
+It is a reference architecture, not an execution framework, designed to be forked, adapted, or cited by builders who want agents that are accountable, composable, and economically real — without claiming endorsement or enforcing a single implementation.
 
 ## Core Architecture
 
