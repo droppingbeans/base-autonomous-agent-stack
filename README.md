@@ -139,7 +139,7 @@ OpenClaw provides skill discovery and tool invocation. The governor defines:
 - **Invocation constraints** — Limits on skill execution
 - **Failure handling** — What to do when a skill fails
 
-**Documentation:** 🚧 Planned: `docs/integration/openclaw-interface.md`
+**Documentation:** ✅ Available: `docs/integration/openclaw-interface.md`
 
 ### Identity & Reputation
 
@@ -148,7 +148,7 @@ Agents interact with other agents. Lightweight patterns for:
 - **Reputation** — Success rate, dispute count (heuristic-based)
 - **Dispute Resolution** — Timeouts, proof failure, blocklisting
 
-**Documentation:** 🚧 Planned: `docs/integration/identity-reputation.md`
+**Documentation:** ✅ Available: `docs/integration/identity-reputation.md`
 
 ## Operations
 
@@ -156,9 +156,9 @@ Agents are long-running processes. Operational concerns:
 
 | Concern | Description | Status |
 |---------|-------------|--------|
-| **Triggers** | When to act (events, conditions, heartbeats) | 🚧 Planned: `docs/operations/triggers.md` |
-| **Monitoring** | Health checks, metrics, observability | 🚧 Planned: `docs/operations/monitoring.md` |
-| **Incident Response** | What to do when things go wrong | 🚧 Planned: `docs/operations/incident-response.md` |
+| **Triggers** | When to act (events, conditions, heartbeats) | ✅ Available: `docs/operations/triggers.md` |
+| **Monitoring** | Health checks, metrics, observability | ✅ Available: `docs/operations/monitoring.md` |
+| **Incident Response** | What to do when things go wrong | ✅ Available: `docs/operations/incident-response.md` |
 
 ## Examples
 
@@ -194,7 +194,8 @@ This stack is designed to be **native to Base** and aligns with official Base ec
 2. **Read Decision Framework** — `docs/policies/decision-framework.md` ✅
 3. **Read Safety Limits** — `docs/policies/safety-limits.md` ✅
 4. **Read Guardrails** — `docs/policies/guardrails.md` ✅
-5. **Review BNKR Interface** — 🚧 `docs/integration/bnkr-interface.md` (planned)
+5. **Review BNKR Interface** — `docs/integration/bnkr-interface.md` ✅
+6. **Understand Triggers** — `docs/operations/triggers.md` ✅
 
 **You MUST understand the governor before taking any action.**
 
@@ -204,9 +205,10 @@ If you are building an autonomous agent on Base:
 
 1. **Read Core Principles** — 🚧 `governance/principles.md` (planned)
 2. **Understand the Architecture** — Start with `docs/architecture/governor-layer.md` ✅
-3. **Review Policies** — `docs/policies/` (partial, in progress)
-4. **Study Examples** — 🚧 `examples/` (planned)
-5. **Integrate Skill Packs** — BNKR and OpenClaw (see `docs/integration/` when available)
+3. **Review Policies** — `docs/policies/` (complete) ✅
+4. **Study Integration Patterns** — `docs/integration/` (BNKR, OpenClaw, identity) ✅
+5. **Learn Operations** — `docs/operations/` (triggers, monitoring, incidents) ✅
+6. **Study Examples** — 🚧 `examples/` (planned)
 
 **This is a reference implementation. You are free to adopt, adapt, or fork.**
 
@@ -230,14 +232,14 @@ This stack is in **draft status**. Agents MUST operate with conservative limits 
 - ✅ `docs/policies/safety-limits.md`
 - ✅ `docs/policies/guardrails.md`
 - ✅ `docs/economics/x402-protocol.md`
+- ✅ `docs/integration/bnkr-interface.md`
+- ✅ `docs/integration/openclaw-interface.md`
+- ✅ `docs/integration/identity-reputation.md`
+- ✅ `docs/operations/triggers.md`
+- ✅ `docs/operations/monitoring.md`
+- ✅ `docs/operations/incident-response.md`
 
 **Planned Documentation:**
-- 🚧 `docs/integration/bnkr-interface.md`
-- 🚧 `docs/integration/openclaw-interface.md`
-- 🚧 `docs/integration/identity-reputation.md`
-- 🚧 `docs/operations/triggers.md`
-- 🚧 `docs/operations/monitoring.md`
-- 🚧 `docs/operations/incident-response.md`
 - 🚧 `examples/decision-flows.md`
 - 🚧 `examples/settlement-flows.md`
 - 🚧 `governance/principles.md`
