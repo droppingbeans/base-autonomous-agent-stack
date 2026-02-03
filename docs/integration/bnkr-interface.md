@@ -12,6 +12,25 @@
 
 ---
 
+## Canonical BNKR Skill Registry
+
+**This repository defines governance and interface expectations only.**
+
+BNKR implementations live externally. The canonical BNKR and OpenClaw skills repository is maintained at:
+
+**https://github.com/BankrBot/openclaw-skills**
+
+That repository contains:
+- BNKR skill implementations
+- OpenClaw skill ecosystem
+- Integration examples and tooling
+
+**Availability ≠ authorization. The Governor Layer still decides.**
+
+BNKR skills being available does not mean agents are authorized to use them. Governor evaluation, safety limits, and authorization checks remain mandatory.
+
+---
+
 ## Delegation Pattern
 
 Agents do NOT execute onchain actions directly. Actions are **delegated** to BNKR:
@@ -125,9 +144,11 @@ When invoking BNKR, agents MUST provide:
 
 ### Response Format
 
-BNKR MUST return structured responses:
+**Agents SHOULD normalize BNKR responses into this canonical shape for logging and audit.**
 
-**Success response:**
+BNKR implementations may vary in their native response format. Agents are responsible for adapting responses to this standard structure:
+
+**Success response (canonical):**
 ```json
 {
   "status": "success",
@@ -238,28 +259,34 @@ Governor MUST verify:
 
 ## Security Considerations
 
-### BNKR Wallet Isolation
+### Execution Wallet Isolation
 
-**BNKR operates with its own wallet, not the agent's main wallet.**
+**Agents SHOULD isolate execution funds in a dedicated execution wallet (often BNKR-controlled), separate from a main/cold wallet.**
 
-Implications:
-- Agent MUST fund BNKR wallet separately
-- BNKR wallet MUST have separate limits
-- Compromise of BNKR wallet does NOT compromise main wallet
+This pattern provides:
+- Blast radius containment (compromised execution wallet does not expose main holdings)
+- Different risk profiles (execution wallet has lower limits)
+- Simplified accounting and monitoring
 
-**Never share private keys between wallets.**
+**Recommended setup:**
+- Main wallet: Long-term holdings, cold storage
+- Execution wallet: Day-to-day operations, BNKR has access
+- Fund execution wallet periodically from main wallet
+- Never share private keys between wallets
 
 ### Spending Limits
 
-**BNKR wallet SHOULD have stricter limits than agent decides:**
+**Agents SHOULD configure execution wallet limits to be stricter than governor limits:**
 
-| Limit | Value | Enforcement |
-|-------|-------|-------------|
-| **Max tx value** | Lower than agent's max | BNKR contract enforces |
-| **Daily spend cap** | Lower than agent's daily cap | BNKR tracks internally |
-| **Allowed contracts** | Whitelist only | BNKR rejects unknown |
+| Limit | Recommendation | Configuration Location |
+|-------|----------------|------------------------|
+| **Max tx value** | Lower than governor max | Agent config / governor |
+| **Daily spend cap** | Lower than governor cap | Agent config / governor |
+| **Allowed contracts** | Whitelist only | Agent config / governor |
 
-**If BNKR limits are stricter than governor limits → BNKR's limits win.**
+**Defense-in-depth: Multiple layers of limits provide redundancy.**
+
+If both governor and execution wallet have limits, the stricter limit applies. This protects against misconfigurations or bugs in either layer.
 
 ### Signature Verification
 
@@ -487,7 +514,10 @@ Result: VERIFIED
 
 ---
 
+---
+
 **See also:**
-- `governor-layer.md` — Decision engine architecture
-- `safety-limits.md` — Hard constraints on operations
-- `guardrails.md` — Pre/post-execution checks
+- [`../architecture/governor-layer.md`](../architecture/governor-layer.md) — Decision engine architecture
+- [`../architecture/execution-layer.md`](../architecture/execution-layer.md) — Delegation patterns
+- [`../policies/safety-limits.md`](../policies/safety-limits.md) — Hard constraints on operations
+- [`../policies/guardrails.md`](../policies/guardrails.md) — Pre/post-execution checks
